@@ -43,16 +43,10 @@ jobs:
         username: ${{ secrets.DOCKERHUB_USERNAME }}
         password: ${{ secrets.DOCKERHUB_TOKEN }}
     -
-      name: Build and push image
-      env:
-        DOCKER_NAMESPACE: ${{ secrets.DOCKERHUB_USERNAME }}
-        BRANCH: ${{ github.ref }}
-      uses: docker/build-push-action@v2
-      with:
-        context: .
-        file: ./Dockerfile.front
-        platforms: linux/amd64,linux/arm64,linux/386
-        push: true
-        tags: yolanmq/front-devops-project:latest
-#    - name: Test Docker Compose Action
-#      uses: isbang/compose-action@v0.1.1
+      name: Docker build image front
+      run: docker build -t yolanmq/front-devops-project:latest -f Dockerfile.front
+    -
+      name: Docker push image front
+      run: |
+        echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        docker push yolanmq/front-devops-project:latest
