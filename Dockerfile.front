@@ -1,0 +1,7 @@
+FROM node as builder
+COPY . /usr/local/src/app
+WORKDIR /usr/local/src/app
+RUN npm install && npm run build
+
+FROM nginx:alpine
+COPY --from=builder /usr/local/src/app/dist/ /usr/share/nginx/html
