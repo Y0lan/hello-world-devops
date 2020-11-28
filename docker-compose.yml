@@ -10,11 +10,14 @@ services:
       - 8081:8081
     depends_on:
       - redis
+    container_name: backend
   frontend:
     build:
       context: .
       dockerfile: Dockerfile.front
     ports:
       - 80:80
+    container_name: frontend
   redis:
     image: redis
+    container_name: redis
