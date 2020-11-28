@@ -39,25 +39,25 @@ jobs:
         echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         docker push yolanmq/front-devops-project:latest
 
-back:
-  runs-on: ubuntu-latest
-  strategy:
-    matrix:
-      node-version: [8.x]
-  steps:
-    -
-      name: Checkout
-      uses: actions/checkout@v2
-    -
-      name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    -
-      name: Docker build image front
-      run: docker build -t yolanmq/back-devops-project:latest -f Dockerfile.back .
-    -
-      name: Docker push image front
-      run: |
-        echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
-        docker push yolanmq/back-devops-project:latest
+  back:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [8.x]
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+      -
+        name: Docker build image front
+        run: docker build -t yolanmq/back-devops-project:latest -f Dockerfile.back .
+      -
+        name: Docker push image front
+        run: |
+          echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker push yolanmq/back-devops-project:latest
