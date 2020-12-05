@@ -64,10 +64,18 @@ jobs:
     needs: [front, back]
 
     steps:
+      - 
+        name: SSH key gen
+        run: ssh-keygen -f ~/.ssh/terraform -t rsa -m PEM -q -N ""
+      - 
+        name: Install terraform
+        run: |
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
+          apt install terraform
       -
         name: Install Scaleway cli
         run: |
-          sudo curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.2.3/scw-2.2.3-linux-x86_64"
-          sudo chmod +x /usr/local/bin/scw
+          curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.2.3/scw-2.2.3-linux-x86_64"
+          chmod +x /usr/local/bin/scw
           scw init
-          
