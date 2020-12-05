@@ -67,10 +67,16 @@ jobs:
       - 
         name: SSH key gen
         run: ssh-keygen -f ~/.ssh/terraform -t rsa -m PEM -q -N ""
+      -
+         name: Keys export
+         run: |
+           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
+           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
+           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
       - 
         name: Install terraform
         run: |
-          curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
+          curl -fsSL https://apt.releases.hashicorp.com/gpg | apt-key add -
           apt-add-repository "deb [arch=$(dpkg --print-architecture)] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
           apt install terraform
       -
@@ -79,3 +85,4 @@ jobs:
           curl -o /usr/local/bin/scw -L "https://github.com/scaleway/scaleway-cli/releases/download/v2.2.3/scw-2.2.3-linux-x86_64"
           chmod +x /usr/local/bin/scw
           scw init
+          
