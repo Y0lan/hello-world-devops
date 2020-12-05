@@ -76,7 +76,7 @@ jobs:
           SCW_ORGANIZATION_ID: ${{ secrets.SCALEWAY_ORGANIZATION }}
           SCW_ZONE: fr-par-2
         with:
-           args: account ssh-key add name=terraform public_key="$(cat ~/.ssh/terraform.pub)" organization-id=${{ secrets.SCALEWAY_ORGANIZATION }}
+           args: account ssh-key add name=terraform public-key="$(cat ~/.ssh/terraform.pub)" organization-id=${{ secrets.SCALEWAY_ORGANIZATION }}
       -
         name: Terraform setup
         uses: hashicorp/setup-terraform@v1
