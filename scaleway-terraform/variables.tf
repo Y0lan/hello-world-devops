@@ -8,12 +8,12 @@ variable "louis_key" {
   default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZWi5UU2dn9zTgamet3oDpglpZe4y/fXyhrUrUmbeXgiw0nLe/gpHHOixsIMzBnkPj+4kkRnalh/UQleS7b0Q4SGQ/g0JGaEm1hxiGujZ2EWEHVtKY2VpSvfWhYJNfUrvPkwQHp3QDaXSPnNA0rJc69x+pwLT0KfIRiLJcxn+kZsmCG4BQq/hyTUyy34V1PcTOEpBvf8WLsBY80a5Ms98q6fCsG/m2gut9vtbiUdXF+em7Ew9ok1kWWPZsUHTmVkTlGNBRGt+77dHv1ugWaHz014boMK4bv7P6eDjeTqbG3/LYzW8KyUNWzqAkKKBbewwFNfaeUiCp9lQrkCt4+SePHuT4R1zAXOeOzj5Om83oRk0M0SVZyUdsw0VewKO8qbTwE1i+f1Wzu3MaFyUalKcCDoA37r5Jj1Swh/uO4sawIzK2/t5jO7Puq5J4nz+84wizjqdVvQZrBYEqgimvjcKX14/LiZkm1reyiuoSMdpkkKe2t6rDl9sGzmQRrxkqjoU= void@horizon-des-evenements"
 }
 
-variable "github_key" {
-  type = string
-  default = "@@GITHUB_PUBKEY@@"
-}
-
 variable "franck_key" {
   type = string
   default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCXYspeoz1bIbU7j59hvaYrjDGQbOs9vql/RF Zk0PEtkUGZFodatKk65PpLL2w0x2iEICbacQ2ljDcaGa+isBgWG0iq6M6rM6x0H8wK7uj6 cVktnJEMcJ1ALK4dHj4qyDzIOHcIi2y9kKm1Mz4hqdu35kE81Kj8XmA2bx/SUfPQm4c5+ hWDTn7Gp6cgmrOyKYCWI5zR4CehV0xKCeyhdezkZ2PZSLz8aA3c8kUUWKhv4Z4dnP 82UHexJK3zaFn06UjXLms0v7/hVfqcmpgfojeS0Ql4FpiuFxfWxi/YVzstJBTKa2NAIjEKG wF0WhUX2K0bahN1FRlFuVk4sDVnhgUL franck.cussac@gmail.com"
+}
+
+variable "github_key" {
+  type = string
+  default = "@@GITHUB_PUBKEY@@"
 }
