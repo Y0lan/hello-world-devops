@@ -75,22 +75,21 @@ jobs:
           envsubst < scaleway-terraform/variables.tf 
           echo $(cat variables.tf)
 
-#      - 
-#         name: Export secrets
-#         run: |
-#           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
-#           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
-#           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
-#       -
-#        name: Terraform setup
-#        uses: hashicorp/setup-terraform@v1#
-#      -
-#        name: Terraform init & apply
-#        run: |
-#          cd scaleway-terraform/
-#          export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
-#          export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
-#          export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
-
-#          terraform init
-#          terraform apply -auto-approve
+      - 
+         name: Export secrets
+         run: |
+           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
+           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
+           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
+      -
+        name: Terraform setup
+        uses: hashicorp/setup-terraform@v1#
+      -
+        name: Terraform init & apply
+        run: |
+          cd scaleway-terraform/
+          export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
+          export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
+          export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
+          terraform init
+          terraform apply -auto-approve
