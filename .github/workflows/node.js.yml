@@ -71,7 +71,7 @@ jobs:
           export GITHUB_PUBKEY="$(cat terraform.pub)"
       - 
         name: Scaleway scw CLI
-        uses: jawher/action-scw@v2.2.3
+        uses: jawher/action-scw@v2.2.3-2
         env:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
