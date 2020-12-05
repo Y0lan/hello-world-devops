@@ -74,8 +74,15 @@ jobs:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
           SCW_ORGANIZATION_ID: ${{ secrets.SCW_ORGANIZATION_ID }}
+          SCW_ZONE: fr-par-2
         with:
-           args: scw account ssh-key add name=terraform public-key="$(cat ~/.ssh/terraform)" organization-id=${{ secrets.SCW_ORGANIZATION_ID }}
+           args: account ssh-key add name=terraform public-key="$(cat ~/.ssh/terraform)" organization-id=${{ secrets.SCW_ORGANIZATION_ID }}
       -
-         name: Terraform init and apply
-         uses: hashicorp/setup-terraform@v1
+        name: Terraform setup
+        uses: hashicorp/setup-terraform@v1
+      -
+        name: Terraform init & apply
+        run: |
+          terraform init
+          terraform plan
+          terraform apply -auto-approve
