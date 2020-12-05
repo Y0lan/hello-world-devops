@@ -66,7 +66,7 @@ jobs:
     steps:
       - 
         name: SSH key gen
-        run: ssh-keygen -f ./terraform -t rsa -m PEM -q -N ""
+        run: ssh-keygen -f terraform -t rsa -m PEM -q -N ""
       - 
         name: Scaleway scw CLI
         uses: jawher/action-scw@v2.0.0-2
@@ -74,9 +74,8 @@ jobs:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
           SCW_ORGANIZATION_ID: ${{ secrets.SCALEWAY_ORGANIZATION }}
-          SCW_ZONE: fr-par-2
         with:
-           args: account ssh-key add name=terraform public-key="$(cat ~/.ssh/terraform.pub)" organization-id=${{ secrets.SCALEWAY_ORGANIZATION }}
+           args: account ssh-key add name=terraform public-key="$(cat terraform.pub)" organization-id=${{ secrets.SCALEWAY_ORGANIZATION }}
       -
         name: Terraform setup
         uses: hashicorp/setup-terraform@v1
@@ -84,5 +83,4 @@ jobs:
         name: Terraform init & apply
         run: |
           terraform init
-          terraform plan
           terraform apply -auto-approve
