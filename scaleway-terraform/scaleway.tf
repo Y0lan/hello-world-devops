@@ -23,7 +23,7 @@ resource "scaleway_instance_volume" "data" {
 
 resource "scaleway_instance_security_group" "sg-devops-public" {
   name = "sg-devops-public"
-  inbound_default_policy  = "drop"
+  inbound_default_policy  = "accept"
   outbound_default_policy = "accept"
 }
 
