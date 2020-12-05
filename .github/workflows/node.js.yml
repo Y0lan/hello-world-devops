@@ -72,7 +72,7 @@ jobs:
         run: |
           ssh-keygen -f terraform -t rsa -q -N ""
           export GITHUB_PUBKEY="$(cat terraform.pub)"
-          sed -i "s/@@GITHUB_PUBKEY@@/"$GITHUB_PUBKEY"/g" variables.tf
+          sed -i "s/@@GITHUB_PUBKEY@@/"$GITHUB_PUBKEY"/g" scaleway-terraform/variables.tf
           echo $(cat variables.tf)
 
 #      - 
