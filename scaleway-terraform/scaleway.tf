@@ -34,8 +34,8 @@ data "scaleway_image" "docker" {
 
 
 resource "scaleway_instance_server" "scw-devops-project" {
-  type = "GP1-X"
-  image = "alpine-linux"
+  type = "DEV1-L"
+  image = "ubuntu-focal"
   ip_id = scaleway_instance_ip.public_ip.id
   additional_volume_ids = [
     scaleway_instance_volume.data.id]
