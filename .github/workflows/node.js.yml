@@ -64,6 +64,9 @@ jobs:
     needs: [front, back]
 
     steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
       - 
         name: SSH key gen
         run: |
@@ -86,5 +89,6 @@ jobs:
       -
         name: Terraform init & apply
         run: |
+          cd scaleway-terraform/
           terraform init
           terraform apply -auto-approve
