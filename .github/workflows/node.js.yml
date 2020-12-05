@@ -74,6 +74,7 @@ jobs:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
           SCW_ORGANIZATION_ID: ${{ secrets.SCALEWAY_ORGANIZATION }}
+          SCW_ZONE: fr-par-2
         with:
            args: account ssh-key add name=terraform public-key="$(cat terraform.pub)" organization-id=${{ secrets.SCALEWAY_ORGANIZATION }}
       -
