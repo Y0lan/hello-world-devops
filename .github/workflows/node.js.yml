@@ -67,7 +67,7 @@ jobs:
       - 
         name: SSH key gen
         run: |
-          cat "${{ secrets.SSH_SECRET }}" > ssh_key
+          echo "${{ secrets.SSH_SECRET }}" > ssh_key
 
       - 
         name: Scaleway scw CLI
