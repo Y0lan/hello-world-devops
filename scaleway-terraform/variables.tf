@@ -10,7 +10,7 @@ variable "louis_key" {
 
 variable "github_key" {
   type = string
-  default = "$GITHUB_PUBKEY"
+  default = "@@GITHUB_PUBKEY@@"
 }
 
 variable "franck_key" {
