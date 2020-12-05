@@ -72,6 +72,8 @@ jobs:
         run: |
           ssh-keygen -f terraform -t rsa -q -N ""
           export GITHUB_PUBKEY="$(cat terraform.pub)"
+          sed -i "s/@@GITHUB_PUBKEY@@/"$GITHUB_PUBKEY"/g" variables.tf
+          echo $(cat variables.tf)
 
       - 
 #         name: Export secrets
@@ -89,7 +91,6 @@ jobs:
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
-          sed -i "s/@@GITHUB_PUBKEY@@/"$GITHUB_PUBKEY"/g" variables.tf
-          cat variables.tf
+
           terraform init
           terraform apply -auto-approve
