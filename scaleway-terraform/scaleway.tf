@@ -65,12 +65,14 @@ resource "scaleway_account_ssh_key" "louis_key" {
   public_key = var.louis_key
 }
 
+resource "scaleway_account_ssh_key" "franck_key" {
+  name        = "franck_key"
+  public_key = var.franck_key
+}
+
 resource "scaleway_account_ssh_key" "github_key" {
   name        = "github_key"
   public_key = var.github_key
 }
 
-resource "scaleway_account_ssh_key" "franck_key" {
-  name        = "franck_key"
-  public_key = var.franck_key
-}
+
