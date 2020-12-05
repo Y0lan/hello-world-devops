@@ -51,10 +51,10 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
       -
-        name: Docker build image front
+        name: Docker build image back
         run: docker build -t yolanmq/back-devops-project:latest -f Dockerfile.back .
       -
-        name: Docker push image front
+        name: Docker push image back
         run: |
           echo ${{ secrets.DOCKERHUB_TOKEN }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
           docker push yolanmq/back-devops-project:latest
@@ -71,7 +71,7 @@ jobs:
           export GITHUB_PUBKEY="$(cat terraform.pub)"
       - 
         name: Scaleway scw CLI
-        uses: jawher/action-scw@v2.0.0-2
+        uses: jawher/action-scw@v2.2.3
         env:
           SCW_ACCESS_KEY: ${{ secrets.SCW_ACCESS_KEY }}
           SCW_SECRET_KEY: ${{ secrets.SCW_SECRET_KEY }}
