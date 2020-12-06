@@ -72,15 +72,15 @@ jobs:
       -
         name: Checkout
         uses: actions/checkout@v2
-      - 
+      -
         name: SSH key gen
         run: |
-          ssh-keygen -f terraform -t rsa -q -N "" 
-          export GITHUB_PUB="$(cat terraform.pub)" 
-          envsubst < scaleway-terraform/variables.tf 
-          echo $(cat variables.tf)
+          ssh-keygen -f terraform -t rsa -q -N ""
+          export GITHUB_PUB="$(cat terraform.pub)"
+#          envsubst < scaleway-terraform/variables.tf
+#          echo $(cat variables.tf)
 
-      - 
+      -
          name: Export secrets
          run: |
            export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
