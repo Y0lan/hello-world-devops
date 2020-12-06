@@ -13,6 +13,22 @@ provider "scaleway" {
   region = "fr-par"
 }
 
+resource "scaleway_account_ssh_key" "gwendal_key" {
+  name        = "gwendal_key"
+  public_key = var.gwendal_key
+}
+
+resource "scaleway_account_ssh_key" "louis_key" {
+  name        = "louis_key"
+  public_key = var.louis_key
+}
+
+
+resource "scaleway_account_ssh_key" "github_key" {
+  name        = "github_key"
+  public_key = var.github_key
+}
+
 resource "scaleway_instance_ip" "public_ip" {
 }
 
@@ -54,21 +70,3 @@ resource "scaleway_instance_server" "scw-devops-project" {
     ]
   }
 }
-
-resource "scaleway_account_ssh_key" "gwendal_key" {
-  name        = "gwendal_key"
-  public_key = var.gwendal_key
-}
-
-resource "scaleway_account_ssh_key" "louis_key" {
-  name        = "louis_key"
-  public_key = var.louis_key
-}
-
-
-resource "scaleway_account_ssh_key" "github_key" {
-  name        = "github_key"
-  public_key = var.github_key
-}
-
-
