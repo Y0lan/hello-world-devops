@@ -63,11 +63,11 @@ resource "scaleway_instance_server" "scw-devops-project" {
     source = "docker-compose.yml"
     destination = "/root/docker-compose.yml"
   }
-  connection {
-    type = "ssh"
-    user = "root"
-    host = scaleway_instance_ip.public_ip.address
-  }
+#   connection {
+#     type = "ssh"
+#     user = "root"
+#     host = scaleway_instance_ip.public_ip.address
+#   }
   provisioner "remote-exec" {
     inline = [
       "docker-compose up -d"
