@@ -66,6 +66,7 @@ resource "scaleway_instance_server" "scw-devops-project" {
   connection {
     type = "ssh"
     user = "root"
+    private_key = "${file("../terraform")}"
     host = scaleway_instance_ip.public_ip.address
   }
   provisioner "remote-exec" {

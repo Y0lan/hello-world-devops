@@ -15,5 +15,5 @@ variable "mohamed_key" {
 
 variable "github_key" {
   type = string
-  default = "${file("terraform.pub")}"
+  default = "$GITHUB_PUB"
 }
