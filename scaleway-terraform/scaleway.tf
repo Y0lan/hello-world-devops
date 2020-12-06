@@ -68,6 +68,7 @@ resource "scaleway_instance_server" "scw-devops-project" {
     user = "root"
     private_key = "${file("../terraform")}"
     host = scaleway_instance_ip.public_ip.address
+    timeout = "2min"
   }
   provisioner "remote-exec" {
     inline = [

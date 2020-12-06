@@ -103,4 +103,6 @@ jobs:
       -
         name: Onfail destroy
         if: ${{ failure() }}
-        run: terraform destroy -auto-approve
+        run: |
+          cd scaleway-terraform/
+          terraform destroy -auto-approve
