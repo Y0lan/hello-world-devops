@@ -8,6 +8,11 @@ variable "louis_key" {
   default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDZWi5UU2dn9zTgamet3oDpglpZe4y/fXyhrUrUmbeXgiw0nLe/gpHHOixsIMzBnkPj+4kkRnalh/UQleS7b0Q4SGQ/g0JGaEm1hxiGujZ2EWEHVtKY2VpSvfWhYJNfUrvPkwQHp3QDaXSPnNA0rJc69x+pwLT0KfIRiLJcxn+kZsmCG4BQq/hyTUyy34V1PcTOEpBvf8WLsBY80a5Ms98q6fCsG/m2gut9vtbiUdXF+em7Ew9ok1kWWPZsUHTmVkTlGNBRGt+77dHv1ugWaHz014boMK4bv7P6eDjeTqbG3/LYzW8KyUNWzqAkKKBbewwFNfaeUiCp9lQrkCt4+SePHuT4R1zAXOeOzj5Om83oRk0M0SVZyUdsw0VewKO8qbTwE1i+f1Wzu3MaFyUalKcCDoA37r5Jj1Swh/uO4sawIzK2/t5jO7Puq5J4nz+84wizjqdVvQZrBYEqgimvjcKX14/LiZkm1reyiuoSMdpkkKe2t6rDl9sGzmQRrxkqjoU= void@horizon-des-evenements"
 }
 
+variable "mohamed_key" {
+  type = string
+  default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCtuSMzECVrHJqM+cJaEUWHaQO/wFo7mP2tHPV7aTL7ZpeEKtHtdbJhvWS1QeCajvWPLxFVKvUzEhg8oeknAvB7bJEsEk1hp1pO1Njwuw/I3xFFMIyyuNVAPD3W8QsF4jPfsNRjcJ4/n7WBa77WLb4B2maKoUPPE6/mM0kUcX3gyuM2LSrJQkI8GkYzm529jFx39RT9Pi1cD3TR5TmLNoB6w2JJx074HR+pJupyZv54g8HBIdZJ+MxMXZg4+3P0YCcZYO3fvAqbJ8EseLuoutDfHJ3DG+GaxkhWSWrw6lEsjf+73LdHDstzZ9sehshyI1MxVdnYxieoG71Ou2toKta/PMt1jaUayd9nKjwN7/S3TenGw/9t6H8yEpkCG2vYT7g/kQ9ky2eo5Q2/P/2J1R9/gcGDAV/rt1n2UeNUCj7OBRGeTatEZ4KaGP5uewTU5MpxKTntKBsSJutrohPpAxy9gsJcD3H8woF2j4/H5b8JaJdUfFz4wHAFEpv9Dr+8aRs= Elbar@LAPTOP-DEA8T1E8"
+}
+
 variable "github_key" {
   type = string
   default = "$GITHUB_PUB"
