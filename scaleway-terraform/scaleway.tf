@@ -28,10 +28,10 @@ resource "scaleway_account_ssh_key" "mohamed_key" {
   public_key = var.mohamed_key
 }
 
-resource "scaleway_account_ssh_key" "github_key" {
-  name        = "github_key"
-  public_key = var.github_key
-}
+#resource "scaleway_account_ssh_key" "github_key" {
+#  name        = "github_key"
+#  public_key = var.github_key
+#}
 
 resource "scaleway_instance_ip" "public_ip" {
 }

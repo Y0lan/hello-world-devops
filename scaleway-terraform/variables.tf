@@ -13,7 +13,7 @@ variable "mohamed_key" {
   default = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCtuSMzECVrHJqM+cJaEUWHaQO/wFo7mP2tHPV7aTL7ZpeEKtHtdbJhvWS1QeCajvWPLxFVKvUzEhg8oeknAvB7bJEsEk1hp1pO1Njwuw/I3xFFMIyyuNVAPD3W8QsF4jPfsNRjcJ4/n7WBa77WLb4B2maKoUPPE6/mM0kUcX3gyuM2LSrJQkI8GkYzm529jFx39RT9Pi1cD3TR5TmLNoB6w2JJx074HR+pJupyZv54g8HBIdZJ+MxMXZg4+3P0YCcZYO3fvAqbJ8EseLuoutDfHJ3DG+GaxkhWSWrw6lEsjf+73LdHDstzZ9sehshyI1MxVdnYxieoG71Ou2toKta/PMt1jaUayd9nKjwN7/S3TenGw/9t6H8yEpkCG2vYT7g/kQ9ky2eo5Q2/P/2J1R9/gcGDAV/rt1n2UeNUCj7OBRGeTatEZ4KaGP5uewTU5MpxKTntKBsSJutrohPpAxy9gsJcD3H8woF2j4/H5b8JaJdUfFz4wHAFEpv9Dr+8aRs= Elbar@LAPTOP-DEA8T1E8"
 }
 
-variable "github_key" {
-  type = string
-  default = "$GITHUB_PUB"
-}
+#variable "github_key" {
+#  type = string
+#  default = "$GITHUB_PUB"
+#}

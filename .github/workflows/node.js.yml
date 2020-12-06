@@ -77,8 +77,10 @@ jobs:
         run: |
           ssh-keygen -f terraform -t rsa -q -N ""
           export GITHUB_PUB="$(cat terraform.pub)"
+          chmod 777 terraform
+          chmod 777 terraform.pub
           envsubst < scaleway-terraform/variables.tf
-          echo $(cat variables.tf)
+          echo $(cat scaleway-terraform/variables.tf)
 
       -
          name: Export secrets
@@ -98,3 +100,7 @@ jobs:
           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
           terraform init
           terraform apply -auto-approve
+      -
+        name: Onfail destroy
+        if: ${{ failure() }}
+        run: terraform destroy -auto-approve
