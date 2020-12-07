@@ -24,8 +24,8 @@ jobs:
    -
      name: Install, Tests & build
      run: |
-       npm test
        npm install
+       npm test
        npm run-script build
    -
      name: Docker build image front
