@@ -80,7 +80,6 @@ jobs:
             ssh-private-key: ${{ secrets.SSH_SECRET_KEY }}
       -
         name: Terraform init & apply
-
         run: |
           cd scaleway-terraform/
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
