@@ -80,6 +80,7 @@ jobs:
           echo "${{ secrets.SSH_SECRET_KEY }}" > private_key
           cat private_key
           eval `ssh-agent -s`
+          chmod 500 private_key
           ssh-add private_key
           ssh-agent -l
           cd scaleway-terraform/
