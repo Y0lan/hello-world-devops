@@ -38,6 +38,8 @@ resource "scaleway_instance_server" "scw-devops-project" {
   type = "DEV1-L"
   image = "ubuntu-focal"
   ip_id = scaleway_instance_ip.public_ip.id
+  additional_volume_ids = [
+    scaleway_instance_volume.data.id]
   provisioner "file" {
     source = "../docker-compose.yml"
     destination = "/root/docker-compose.yml"
