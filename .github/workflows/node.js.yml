@@ -74,11 +74,13 @@ jobs:
       -
         name: Terraform setup
         uses: hashicorp/setup-terraform@v1
+      - name: load ssh agent
+      - uses: webfactory/ssh-agent@v0.4.1
+        with:
+            ssh-private-key: ${{ secrets.SSH_SECRET_KEY }}
       -
         name: Terraform init & apply
-      - uses: webfactory/ssh-agent@v0.4.1
-          with:
-            ssh-private-key: ${{ secrets.SSH_SECRET_KEY }}
+
         run: |
           cd scaleway-terraform/
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
