@@ -15,6 +15,12 @@ provider "scaleway" {
 resource "scaleway_instance_ip" "public_ip" {
 }
 
+resource "scaleway_instance_volume" "data" {
+  name = "scaleway_terraform_data"
+  size_in_gb = 80
+  type = "l_ssd"
+}
+
 resource "scaleway_instance_security_group" "sg-devops-public" {
   name = "sg-devops-public"
   inbound_default_policy = "accept"
@@ -32,6 +38,8 @@ resource "scaleway_instance_server" "scw-devops-project" {
   type = "DEV1-L"
   image = "ubuntu-focal"
   ip_id = scaleway_instance_ip.public_ip.id
+  additional_volume_ids = [
+    scaleway_instance_volume.data.id]
   provisioner "file" {
     source = "../docker-compose.yml"
     destination = "/root/docker-compose.yml"
