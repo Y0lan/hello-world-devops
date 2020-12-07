@@ -24,8 +24,9 @@ jobs:
    -
      name: Install, Tests & build
      run: |
-       npm install
        npm test
+       npm install
+       npm run-script build
    -
      name: Docker build image front
      run: docker build -t yolanmq/front-devops-project:latest -f Dockerfile.front .
