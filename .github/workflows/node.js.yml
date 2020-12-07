@@ -82,7 +82,7 @@ jobs:
           eval `ssh-agent -s`
           chmod 500 private_key
           ssh-add private_key
-          ssh-agent -l
+          ssh-add -l
           cd scaleway-terraform/
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
