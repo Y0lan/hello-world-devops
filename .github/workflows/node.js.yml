@@ -78,11 +78,9 @@ jobs:
         name: Terraform init & apply
         run: |
           echo "${{ secrets.SSH_SECRET_KEY }}" > private_key
-          cat private_key
           eval `ssh-agent -s`
           chmod 500 private_key
           ssh-add private_key
-          ssh-add -l
           cd scaleway-terraform/
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
