@@ -74,7 +74,6 @@ jobs:
       -
         name: Terraform setup
         uses: hashicorp/setup-terraform@v1
-      - name: load ssh agent
       -
         name: Terraform init & apply
         run: |
