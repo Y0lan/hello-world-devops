@@ -87,4 +87,5 @@ jobs:
           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
           terraform init
+          terraform destroy -auto-approve
           terraform apply -auto-approve
