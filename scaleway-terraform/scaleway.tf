@@ -9,6 +9,7 @@ terraform {
 
 provider "scaleway" {
   zone = "fr-par-2"
+  region = "fr-par"
 }
 
 resource "scaleway_instance_ip" "public_ip" {
@@ -32,6 +33,7 @@ data "scaleway_image" "docker" {
 
 
 resource "scaleway_instance_server" "scw-devops-project" {
+  name = "terraform-scaleway"
   type = "DEV1-L"
   image = "ubuntu-focal"
   ip_id = scaleway_instance_ip.public_ip.id

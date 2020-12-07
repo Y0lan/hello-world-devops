@@ -26,7 +26,6 @@ jobs:
      run: |
        npm install
        npm test
-       npm run build
    -
      name: Docker build image front
      run: docker build -t yolanmq/front-devops-project:latest -f Dockerfile.front .
@@ -73,26 +72,13 @@ jobs:
         name: Checkout
         uses: actions/checkout@v2
       -
-        name: SSH key gen
-        run: |
-          ssh-keygen -f terraform -t rsa -q -N ""
-          export GITHUB_PUB="$(cat terraform.pub)"
-          chmod 777 terraform
-          chmod 777 terraform.pub
-          envsubst < scaleway-terraform/variables.tf
-          echo $(cat scaleway-terraform/variables.tf)
-
-      -
-         name: Export secrets
-         run: |
-           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
-           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
-           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
-      -
         name: Terraform setup
         uses: hashicorp/setup-terraform@v1
       -
         name: Terraform init & apply
+      - uses: webfactory/ssh-agent@v0.4.1
+          with:
+            ssh-private-key: ${{ secrets.SSH_SECRET_KEY }}
         run: |
           cd scaleway-terraform/
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
@@ -100,9 +86,3 @@ jobs:
           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
           terraform init
           terraform apply -auto-approve
-      -
-        name: Onfail destroy
-        if: ${{ failure() }}
-        run: |
-          cd scaleway-terraform/
-          terraform destroy -auto-approve
