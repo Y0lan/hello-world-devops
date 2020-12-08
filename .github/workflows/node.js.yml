@@ -78,7 +78,6 @@ jobs:
       -
         name: Terraform init & apply
         run: |
-
           echo "${{ secrets.SSH_SECRET_KEY }}" > private_key
           eval `ssh-agent -s`
           chmod 500 private_key
@@ -92,4 +91,4 @@ jobs:
           terraform apply --auto-approve
           scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -i ../private_key terraform.tfstate yolan@triton.whatbox.ca:/home/yolan/terraform/terraform.tfstate
 
-          
+
