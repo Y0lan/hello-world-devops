@@ -91,6 +91,5 @@ jobs:
           terraform apply --auto-approve
           scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -i ../private_key terraform.tfstate yolan@triton.whatbox.ca:/home/yolan/terraform/terraform.tfstate
           chmod +x rebuild_app.sh
-          cat rebuild_app.sh | ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -i ../private_key yolan@triton.whatbox.ca
 
 
