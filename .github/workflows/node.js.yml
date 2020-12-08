@@ -88,8 +88,8 @@ jobs:
           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
           terraform init
           scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -i ../private_key yolan@triton.whatbox.ca:/home/yolan/terraform/terraform.tfstate terraform.tfstate
-          terraform destroy --auto-aprove
-          terraform apply --auto-approve
+          terraform destroy -auto-aprove
+          terraform apply -auto-approve
           scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -q -i ../private_key terraform.tfstate yolan@triton.whatbox.ca:/home/yolan/terraform/terraform.tfstate
 
 
