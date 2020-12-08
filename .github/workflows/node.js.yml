@@ -78,14 +78,19 @@ jobs:
       -
         name: Terraform init & apply
         run: |
+
           echo "${{ secrets.SSH_SECRET_KEY }}" > private_key
           eval `ssh-agent -s`
           chmod 500 private_key
           ssh-add private_key
           cd scaleway-terraform/
+          scp -i private_key yolan@triton.whatbox.ca:/home/yolan/terraform/terraform.tfstate terraform.tfstate
+          terraform destroy --auto-approve
           export SCALEWAY_ORGANIZATION=${{ secrets.SCALEWAY_ORGANIZATION }}
           export SCW_ACCESS_KEY=${{ secrets.SCW_ACCESS_KEY }}
           export SCW_SECRET_KEY=${{ secrets.SCW_SECRET_KEY }}
           terraform init
-          terraform destroy -auto-approve
-          terraform apply -auto-approve
+          terraform apply --auto-approve
+          scp -i terraform.tfstate yolan@triton.whatbox.ca:/home/yolan/rerraform/terraform.tfstate
+
+          
