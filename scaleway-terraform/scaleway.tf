@@ -49,3 +49,4 @@ resource "scaleway_instance_server" "scw-devops-project" {
     ]
   }
 }
+

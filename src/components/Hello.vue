@@ -1,7 +1,7 @@
 <template>
   <md-layout md-column>
     <md-toolbar>
-      <h2 style="flex: 1" class="md-title">MAJ TITRE</h2>
+      <h2 style="flex: 1" class="md-title">Test</h2>
       <md-switch @change="switchOnline" v-model="online" id="my-test0"
                  name="my-test0"></md-switch>
       <span v-if="online">Online</span>
