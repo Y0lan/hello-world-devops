@@ -44,7 +44,6 @@ resource "scaleway_instance_server" "scw-devops-project" {
   provisioner "remote-exec" {
     inline = [
       "apt update",
-      "apt upgrade -y",
       "apt install docker-compose -y",
       "docker-compose up -d",
     ]
