@@ -3,3 +3,4 @@ COPY . /usr/local/src/app
 WORKDIR /usr/local/src/app
 RUN npm install --production
 ENTRYPOINT ["/usr/local/bin/node", "/usr/local/src/app/server.js"]
+
