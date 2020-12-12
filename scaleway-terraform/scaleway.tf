@@ -46,9 +46,6 @@ resource "scaleway_instance_server" "scw-devops-project" {
       "apt update",
       "apt upgrade -y",
       "apt install docker-compose -y",
-      "docker-compose stop",
-      "docker-compose rm -f",
-      "docker-compose pull",
       "docker-compose up -d",
     ]
   }
